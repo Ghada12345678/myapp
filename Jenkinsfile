@@ -23,7 +23,7 @@ pipeline {
         stage ('Build') {
                steps{
                  script{
-                    sh "sudo -S ansible-playbook ansible/build.yml -i ansible/inventory/host.yml "
+                    sh "ansible-playbook ansible/build.yml -i ansible/inventory/host.yml "
                  }
                }
 
@@ -40,9 +40,5 @@ pipeline {
 
 
    }
-post {
-        always {
-            cleanWs()
-        }
-    }
+
 }
