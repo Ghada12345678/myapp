@@ -15,7 +15,7 @@ pipeline {
         stage ('Build') {
                steps{
                  script{
-                    sh "ansible-playbook ansible/build.yml -i ansible/inventory/host.yml -u root --private-key=/var/lib/jenkins/.ssh/id_rsa"
+                    sh "ansible-playbook ansible/build.yml -i ansible/inventory/host.yml"
                  }
                }
 
@@ -24,7 +24,7 @@ pipeline {
         stage ('Dokcer build') {
                steps{
                  script{
-                    sh "ansible-playbook ansible/docker.yml -i ansible/inventory/host.yml -u root --private-key=/var/lib/jenkins/.ssh/id_rsa"
+                    sh "ansible-playbook ansible/docker.yml -i ansible/inventory/host.yml"
                  }
                }
 
