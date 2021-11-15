@@ -23,7 +23,7 @@ pipeline {
         stage ('Build') {
                steps{
                  script{
-                    sh "ansible-playbook ansible/build.yml -i ansible/inventory/host.yml"
+                    sh "sudo -s ansible-playbook ansible/build.yml -i ansible/inventory/host.yml --private-key=/var/lib/jenkins/.ssh/id_rsa -u root"
                  }
                }
 
