@@ -4,13 +4,14 @@ pipeline {
 
 
     stages {
-       stage ('GIT') {
-               steps{
-                 script{
-                     checkout([$class: 'GitSCM', branches: [[name: '*/main']],userRemoteConfigs: [[ credentialsId: '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',url :'https://github.com/Ghada12345678/myapp']]])                
-                 }
-
-}
+       stage('Pull') {
+             steps{
+                script{
+                    checkout([$class: 'GitSCM', branches: [[name: '*/master']],
+                        userRemoteConfigs: [[
+                            url: 'https://github.com/Ghada12345678/myapp']]])
+                }
+            }
         }
         stage ('Build') {
                steps{
